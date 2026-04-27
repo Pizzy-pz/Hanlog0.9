@@ -416,3 +416,69 @@ FOREIGN KEY ("user_id")
   [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2597528856621098190)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/auth/login" for 172.18.0.1 at 2026-04-27 14:28:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"email"=>"[FILTERED]", "password"=>"[FILTERED]", "auth"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:16:in `login'
+Completed 200 OK in 210ms (Views: 0.1ms | ActiveRecord: 4.8ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started POST "/api/v1/vocabularies" for 172.18.0.1 at 2026-04-27 14:29:10 +0000
+Processing by Api::V1::VocabulariesController#create as HTML
+  Parameters: {"vocabulary"=>{"korean_word"=>"??", "japanese_meaning"=>"??", "difficulty"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authenticate_user!'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+  
+NoMethodError (undefined method `vocabularies' for an instance of User):
+  
+app/controllers/api/v1/vocabularies_controller.rb:11:in `create'
+Started GET "/api/v1/vocabularies" for 172.18.0.1 at 2026-04-27 14:29:34 +0000
+Processing by Api::V1::VocabulariesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authenticate_user!'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `vocabularies' for an instance of User):
+  
+app/controllers/api/v1/vocabularies_controller.rb:6:in `index'
+Started POST "/api/v1/vocabularies" for 172.18.0.1 at 2026-04-27 14:30:56 +0000
+Processing by Api::V1::VocabulariesController#create as HTML
+  Parameters: {"vocabulary"=>{"korean_word"=>"??", "japanese_meaning"=>"??", "difficulty"=>2}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authenticate_user!'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `vocabularies' for an instance of User):
+  
+app/controllers/api/v1/vocabularies_controller.rb:11:in `create'
+Started POST "/api/v1/auth/login" for 172.18.0.1 at 2026-04-27 14:32:49 +0000
+Processing by Api::V1::AuthController#login as HTML
+  Parameters: {"email"=>"[FILTERED]", "password"=>"[FILTERED]", "auth"=>{"email"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auth_controller.rb:16:in `login'
+Completed 200 OK in 259ms (Views: 0.2ms | ActiveRecord: 5.6ms (1 query, 0 cached) | GC: 2.0ms)
+
+
+Started POST "/api/v1/vocabularies" for 172.18.0.1 at 2026-04-27 14:33:04 +0000
+Processing by Api::V1::VocabulariesController#create as HTML
+  Parameters: {"vocabulary"=>{"korean_word"=>"??", "japanese_meaning"=>"??", "difficulty"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `authenticate_user!'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/vocabularies_controller.rb:12:in `create'
+  [1m[36mVocabulary Create (3.4ms)[0m  [1m[32mINSERT INTO "vocabularies" ("user_id", "korean_word", "japanese_meaning", "image_url", "difficulty", "proficiency", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["user_id", 3], ["korean_word", "??"], ["japanese_meaning", "??"], ["image_url", nil], ["difficulty", 2], ["proficiency", 0], ["created_at", "2026-04-27 14:33:04.244151"], ["updated_at", "2026-04-27 14:33:04.244151"]]
+  ↳ app/controllers/api/v1/vocabularies_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/vocabularies_controller.rb:12:in `create'
+Completed 201 Created in 110ms (Views: 1.1ms | ActiveRecord: 6.6ms (2 queries, 0 cached) | GC: 0.5ms)
+
+

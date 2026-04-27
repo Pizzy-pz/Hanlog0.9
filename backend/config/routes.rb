@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         post :login
         delete :logout
       end
+      resources :vocabularies
     end
   end
 end
