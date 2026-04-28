@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import VocabularyListPage from './pages/VocabularyListPage'
 import VocabularyFormPage from './pages/VocabularyFormPage'
+import Layout from './components/Layout'
 
   function App() {
     return (
@@ -13,17 +14,17 @@ import VocabularyFormPage from './pages/VocabularyFormPage'
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/vocabularies" element={                                                      
           <PrivateRoute>
-            <VocabularyListPage />
+            <Layout><VocabularyListPage /></Layout>
           </PrivateRoute>
         } />
         <Route path="/flashcard" element={
           <PrivateRoute>
-              <FlashCardPage />
+              <Layout><FlashCardPage /></Layout>
           </PrivateRoute>
         } />
         <Route path="/vocabularies/new" element={
           <PrivateRoute>
-            <VocabularyFormPage />
+            <Layout><VocabularyFormPage /></Layout>
           </PrivateRoute>
         } />
         <Route path="*" element={<Navigate to="/login" replace />} />
