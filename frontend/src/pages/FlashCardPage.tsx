@@ -14,12 +14,9 @@ import request from '../api/client'
     }, [])
 
     const handleAnswer = async (isCorrect: boolean) => {
-      const newProficiency = isCorrect
-        ? Math.min(100, current.proficiency + 10)
-        : Math.max(0, current.proficiency - 10)
       await request(`/api/v1/vocabularies/${current.id}`, {
         method: 'PATCH',
-        body: JSON.stringify({ vocabulary: { proficiency: newProficiency } }),
+        body: JSON.stringify({ vocabulary: { correct: isCorrect } }),
       })
       setIsFlipped(false)
       if (currentIndex + 1 >= cards.length) {
