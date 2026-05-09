@@ -5,6 +5,10 @@ on:
     paths:
       - "frontend/**"
       - ".github/workflows/frontend.yml"
+  pull_request:
+    paths:
+      - "frontend/**"
+      - ".github/workflows/frontend.yml"
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}

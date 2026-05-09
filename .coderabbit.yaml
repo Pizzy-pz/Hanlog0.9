@@ -1,0 +1,40 @@
+language: "ja"
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+
+  path_filters:
+    - "!**/*.lock"
+    - "!**/node_modules/**"
+    - "!**/tmp/**"
+    - "!**/log/**"
+
+  path_instructions:
+    - path: "backend/spec/**"
+      instructions: |
+        RSpec + FactoryBot を使用しています。
+        - describe/context/it の構造が適切か確認してください
+        - FactoryBot のファクトリーが適切に使われているか確認してください
+        - テストが実装の詳細ではなく振る舞いをテストしているか確認してください
+    - path: "backend/app/models/**"
+      instructions: |
+        - バリデーションが適切か確認してください
+        - N+1 クエリの可能性がないか確認してください
+    - path: "backend/app/controllers/**"
+      instructions: |
+        - コントローラーが薄く保たれているか（ビジネスロジックはサービス層へ）確認してください
+        - 認証・認可チェックが適切か確認してください
+    - path: "frontend/src/**"
+      instructions: |
+        React 19 + TypeScript + Vite + Tailwind CSS v4 を使用しています。
+        - Props の型定義が適切か確認してください
+        - useEffect の依存配列が正しいか確認してください
+        - セキュリティ: dangerouslySetInnerHTML が使われていないか確認してください
+
+chat:
+  auto_reply: true
