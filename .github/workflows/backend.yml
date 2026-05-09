@@ -39,11 +39,11 @@ jobs:
           bundler-cache: true
           working-directory: backend
 
-      - name: Set up database
-        env:
+      - name: Set up database                                                                           
+        env:                                 
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/korean_learning_test
           RAILS_ENV: test
-        run: bin/rails db:schema:load
+        run: bundle exec rails db:schema:load
 
       - name: Run tests
         env:
