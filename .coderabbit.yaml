@@ -21,6 +21,8 @@ reviews:
     - "!frontend/dist/**"
     - "!frontend/.vite/**"
     - "!**/.bundle/**"
+    - "!**/.pnpm-store/**"
+    - "!**/vendor/bundle/**"
 
   path_instructions:
     - path: "backend/spec/**"

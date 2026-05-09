@@ -15,6 +15,9 @@ dist-ssr
 .env
 .env.local
 
+# pnpm store (local cache, should not be committed)
+.pnpm-store/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
