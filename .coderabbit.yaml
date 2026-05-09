@@ -16,6 +16,11 @@ reviews:
     - "!**/node_modules/**"
     - "!**/tmp/**"
     - "!**/log/**"
+    - "!**/coverage/**"
+    - "!backend/public/assets/**"
+    - "!frontend/dist/**"
+    - "!frontend/.vite/**"
+    - "!**/.bundle/**"
 
   path_instructions:
     - path: "backend/spec/**"
