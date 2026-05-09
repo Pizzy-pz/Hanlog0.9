@@ -1,5 +1,6 @@
 # Claude Code local settings
 .claude/
+**/skills-lock.json
 
 # OS
 .DS_Store
