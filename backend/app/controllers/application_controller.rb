@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
     def authenticate_user!
         header = request.headers["Authorization"]   # ヘッダーを取得
         token = header&.split(" ")&.last            # "Bearer xxx" → "xxx"
-        decoded = JsonWebToken.decode(token)        # トークンを解読
+        decoded = Jwt::Decoder.decode(token)        # トークンを解読
 
         @current_user = User.find_by(id: decoded[:user_id]) if decoded
 
