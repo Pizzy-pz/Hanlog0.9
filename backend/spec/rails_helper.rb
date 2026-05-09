@@ -13,7 +13,7 @@ end
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
-  config.fixture_paths = [Rails.root.join('spec/fixtures')]
+  config.fixture_paths = [ Rails.root.join("spec/fixtures") ]
   config.use_transactional_fixtures = true
   config.filter_rails_from_backtrace!
 end
