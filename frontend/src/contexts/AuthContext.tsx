@@ -18,7 +18,6 @@ import type{ ReactNode } from 'react'
     const [token, setToken] = useState<string | null>(null)
     const [isLoading, setIsLoading] = useState(true)
 
-    // TODO(human): ここに実装を書く
     useEffect(() => {                                                                          
         const savedToken = localStorage.getItem('token')
         if (savedToken) {
