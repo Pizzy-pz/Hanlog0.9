@@ -6,7 +6,7 @@ module Api
             vocabularies = current_user.vocabularies
             render json: vocabularies
         end
-        
+
         def create
         vocabulary = current_user.vocabularies.build(vocabulary_params)
             if vocabulary.save
@@ -16,8 +16,8 @@ module Api
             end
         end
 
-        def show                                                                                                                           vocabulary = current_user.vocabularies.find(params[:id])                                                                     
-            render json: vocabulary                                                                                                      
+        def show(vocabulary = current_user.vocabularies.find(params[:id]))
+            render json: vocabulary
         end
 
         def update
@@ -41,11 +41,11 @@ module Api
             vocabulary.destroy
             head :no_content
         end
-        
+
         private
         def vocabulary_params
             params.require(:vocabulary).permit(:korean_word, :japanese_meaning, :image_url, :difficulty, :proficiency)
         end
       end
     end
-  end
+end

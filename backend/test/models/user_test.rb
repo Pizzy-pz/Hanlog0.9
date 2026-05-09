@@ -1,5 +1,5 @@
-require "test_helper"                                                                                                                                                                                                                                                   
-class UserTest < ActiveSupport::TestCase                                                                                           
+require "test_helper"
+class UserTest < ActiveSupport::TestCase
     test "emailがない場合は無効" do
         user = User.new(email: nil, password: "password123")
         assert_not user.valid?
