@@ -238,6 +238,13 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
+    sentry-rails (6.5.0)
+      railties (>= 5.2.0)
+      sentry-ruby (~> 6.5.0)
+    sentry-ruby (6.5.0)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      logger
     stringio (3.2.0)
     thor (1.5.0)
     timeout (0.6.1)
@@ -272,6 +279,8 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.2.3, >= 7.2.3.1)
   rubocop-rails-omakase
+  sentry-rails
+  sentry-ruby
   tzinfo-data
 
 BUNDLED WITH
